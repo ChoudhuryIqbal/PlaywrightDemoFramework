@@ -3,3 +3,6 @@ Creating a simple Playwright automation framework. Here , I will try to cover Pl
 
 ## Demo Sites List
 1. https://rahulshettyacademy.com/client
+2. https://github.com/cypress-io/cypress-realworld-app
+3. https://www.saucedemo.com/checkout-step-one.html
+4. https://demoqa.com/

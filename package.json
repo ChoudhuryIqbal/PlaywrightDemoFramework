@@ -1,0 +1,22 @@
+{
+  "name": "playwrightdemoframework",
+  "version": "1.0.0",
+  "description": "Creating a simple Playwright automation framework. Here , I will try to cover Playwright APIS. I will automate and create a Page Object Model Framework.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChoudhuryIqbal/PlaywrightDemoFramework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChoudhuryIqbal/PlaywrightDemoFramework/issues"
+  },
+  "homepage": "https://github.com/ChoudhuryIqbal/PlaywrightDemoFramework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.10"
+  }
+}

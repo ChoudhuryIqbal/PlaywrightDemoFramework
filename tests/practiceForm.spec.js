@@ -28,5 +28,13 @@ test("Pracicing Basic Form Automation",async ({browser})=>{
     await page.locator('#currentAddress').fill('680 Milton Ave ,New York')
     await page.locator('#uploadPicture').setInputFiles("sample.txt")
     await page.getByRole('button',{name:'submit'}).scrollIntoViewIfNeeded()
-    await page.waitForTimeout(20000)
+  
+  await page.locator('#state svg').click();
+  await page.getByText('Haryana', { exact: true }).click();
+  await page.getByText('Select City').click();
+  await page.getByText('Panipat', { exact: true }).click();
+  await page.getByRole('button',{name:'submit'}).click()
+   
+  await expect(await page.locator(".modal-title")).toContainText("Thanks for submitting the form")
+  await page.waitForTimeout(20000)
 })

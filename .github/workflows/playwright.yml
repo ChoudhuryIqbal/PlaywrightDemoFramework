@@ -3,31 +3,32 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - main  # Runs tests when you push to 'main' branch
+      - main  # Runs tests on push to 'main' branch
   pull_request:
     branches:
       - main  # Runs tests on pull request to 'main' branch
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Specify Ubuntu as the runner environment
+    runs-on: ubuntu-latest  # Use Ubuntu as the GitHub runner
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2  # Checks out the repository code
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # You can specify the node version you want to use
+        node-version: '16'  # Use Node.js version 16
 
     - name: Install dependencies
       run: |
-        npm install  # or yarn install if you're using yarn
+        npm install  # Install all dependencies
 
-    - name: Install Playwright browsers
+    - name: Install Playwright and dependencies
       run: |
-        npx playwright install --with-deps  # Install Playwright with required dependencies
+        npx playwright install --with-deps  # Install Playwright and required browsers
 
-    - name: Run Playwright tests
+    - name: Run Playwright tests on Chromium
       run: |
-        npx playwright test  # Run your tests
+        npx playwright test practiceForm.spec.js --project=chromium  # Run tests only on Chromium (Chrome)

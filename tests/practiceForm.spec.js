@@ -6,6 +6,7 @@ test("Pracicing Basic Form Automation",async ({browser})=>{
     const page = await context.newPage();
 
     await page.goto('https://demoqa.com/automation-practice-form')
+    const loginPage=new LoginPage(page);
     await page.locator("#firstName").fill("Choudhury")
     await page.locator ("[id='lastName']").fill("Iqbal")
     await page.getByPlaceholder("name@example.com").fill("iqman@gmail.com")

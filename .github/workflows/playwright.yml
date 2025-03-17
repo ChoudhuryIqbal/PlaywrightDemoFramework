@@ -3,32 +3,36 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - main  # Runs tests on push to 'main' branch
+      - main
   pull_request:
     branches:
-      - main  # Runs tests on pull request to 'main' branch
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use Ubuntu as the GitHub runner
+    runs-on: ubuntu-latest  # Use Linux runner for Xvfb
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # Checks out the repository code
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # Use Node.js version 16
+        node-version: '16'
 
     - name: Install dependencies
       run: |
-        npm install  # Install all dependencies
+        npm install
 
     - name: Install Playwright and dependencies
       run: |
-        npx playwright install --with-deps  # Install Playwright and required browsers
+        npx playwright install --with-deps
 
-    - name: Run Playwright tests on Chromium
+    - name: Install Xvfb
       run: |
-        npx playwright test practiceForm.spec.js --project=chromium  # Run tests only on Chromium (Chrome)
+        sudo apt-get install -y xvfb
+
+    - name: Run Playwright tests with Xvfb (headed mode)
+      run: |
+        xvfb-run npx playwright test practiceForm.spec.js --project=chromium

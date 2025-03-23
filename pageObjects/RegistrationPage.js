@@ -25,7 +25,7 @@ class RegistrationPage {
         await this.page.goto("https://demoqa.com/automation-practice-form");
     }
 
-    async fillForm({ firstName, lastName, email, gender, mobile, dob, address, state, city }) {
+    async fillForm(firstName, lastName, email, gender, mobile, dob, address, state, city ) {
         await this.firstNameTextBox.fill(firstName);
         await this.lastNameTextBox.fill(lastName);
         await this.emailTextBox.fill(email);

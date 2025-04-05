@@ -6,3 +6,6 @@ Creating a simple Playwright automation framework. Here , I will try to cover Pl
 2. https://github.com/cypress-io/cypress-realworld-app
 3. https://www.saucedemo.com/checkout-step-one.html
 4. https://demoqa.com/
+
+# To Run Allure Report Run following Command
+`npx playwright test tests/practiceForm.spec.js --headed --reporter=line --reporter=allure-playwright`

@@ -1,33 +1,36 @@
-const { test, expect } = require('@playwright/test');
-const { RegistrationPage } = require('../pageObjects/RegistrationPage');
+const { test, expect } = require("@playwright/test");
+const { RegistrationPage } = require("../pageObjects/RegistrationPage");
+const dataSet = JSON.parse(
+  JSON.stringify(require("../testData/usersInfo.json"))
+);
 
 test("Practicing Basic Form Automation", async ({ page }) => {
-    const regPage = new RegistrationPage(page);
-    
-    await regPage.goTo(); 
+  const regPage = new RegistrationPage(page);
 
-    await regPage.fillForm({
-        firstName: "Choudhury",
-        lastName: "Iqbal",
-        email: "iqman@gmail.com",
-        gender: "Male",
-        mobile: "9292929259",
-        dob: "15 Mar 1992",
-        address: "680 Milton Ave, New York",
-        state: "Haryana",
-        city: "Panipat"
-    });
+  await regPage.goTo();
 
-    // Upload file
-    await regPage.pictureUploadInput.setInputFiles("sample.txt");
+  await regPage.fillForm(
+    dataSet.firstName,
+    dataSet.lastName,
+    dataSet.email,
+    dataSet.gender,
+    dataSet.mobile,
+    dataSet.dob,
+    dataSet.address,
+    dataSet.state,
+    dataSet.city
+  );
 
-    // Scroll to submit button and submit the form
-    await regPage.submitBtn.scrollIntoViewIfNeeded();
-    await regPage.submitForm();
+  // Upload file
+  await regPage.pictureUploadInput.setInputFiles("sample.txt");
 
-    // Verify submission success
-    await regPage.verifySubmission();
+  // Scroll to submit button and submit the form
+  await regPage.submitBtn.scrollIntoViewIfNeeded();
+  await regPage.submitForm();
 
-    // Wait to observe results
-    await page.waitForTimeout(5000);
+  // Verify submission success
+  await regPage.verifySubmission();
+
+  // Wait to observe results
+  await page.waitForTimeout(5000);
 });

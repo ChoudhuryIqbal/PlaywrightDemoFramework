@@ -21,3 +21,5 @@ Creating a simple Playwright automation framework. Here , I will try to cover Pl
 `npx playwright test --debug`
 ## To see Report after running 
 `npx playwright show-report`
+## To Open UI testRunner
+`npx playwright test --ui`

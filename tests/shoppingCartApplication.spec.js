@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Shopping Cart Application", async ({ page }) => {
+test("@smoke Shopping Cart Application", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/seleniumPractise/#/");
 
   await page.getByPlaceholder("Search for Vegetables and Fruits").fill("ca");

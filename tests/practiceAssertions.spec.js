@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("TechPanda Registration Form with Random User and All Assertions", async ({ page }) => {
+test(" @smoke TechPanda Registration Form with Random User and All Assertions", async ({ page }) => {
   // Generate random user data
   const randomFirst = `TestFirst${Math.floor(Math.random() * 1000)}`;
   const randomMiddle = `M${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`;
@@ -89,5 +89,5 @@ test("TechPanda Registration Form with Random User and All Assertions", async ({
  // await expect(subscribeCheckbox.locator('..')).toContainText('Subscribe');
 
   // Optional: Wait to visually verify the form (remove if not needed)
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1000);
 });

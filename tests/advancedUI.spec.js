@@ -18,7 +18,7 @@ test("Pop Up Validations ", async ({ page }) => {
   //hover
   await page.locator("#mousehover").scrollIntoViewIfNeeded();
   await page.locator("#mousehover").hover();
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1000);
 
   //handle Frame
   const frameLocator = page.frameLocator("[name='iframe-name']");

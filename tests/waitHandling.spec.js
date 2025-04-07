@@ -9,7 +9,7 @@ test("Web Handling Wait", async ({ page }) => {
 
   await page.waitForSelector("#gparent_1");
 
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
 
   await page.locator("#gparent_1").waitFor({ timeout: 3000 });
 

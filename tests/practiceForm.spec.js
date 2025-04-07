@@ -4,7 +4,7 @@ const dataSet = JSON.parse(
   JSON.stringify(require("../testData/usersInfo.json"))
 );
 
-test("Practicing Basic Form Automation", async ({ page }) => {
+test("@smokePracticing Basic Form Automation", async ({ page }) => {
   const regPage = new RegistrationPage(page);
 
   await regPage.goTo();
@@ -32,5 +32,5 @@ test("Practicing Basic Form Automation", async ({ page }) => {
   await regPage.verifySubmission();
 
   // Wait to observe results
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1000);
 });

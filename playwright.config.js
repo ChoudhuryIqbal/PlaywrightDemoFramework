@@ -18,7 +18,10 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers:1,
-  reporter: "html",
+  reporter: [
+    ['html', { outputFolder: 'playwright-html-report', open: 'never' }],
+    ['allure-playwright']
+  ],
   use: {
     trace: "on-first-retry",
     ignoreHTTPSErrors: true,
@@ -31,8 +34,8 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         headless: false,
-        screenshot: "on",
-        trace: "on",
+        screenshot:"only-on-failure",
+        trace: "retain-on-failure",
         timeout: 40000,
         expect: {
           timeout: 20 * 1000,

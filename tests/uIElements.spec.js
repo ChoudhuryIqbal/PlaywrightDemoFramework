@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Read MultiTex from an application", async ({ page }) => {
+test(" @smoke Read MultiTex from an application", async ({ page }) => {
   await page.goto("https://www.demoblaze.com/");
   await page.locator("a.hrefch").first().waitFor(); //waiting for at least one element to load in the page
   const productName = await page.locator("a.hrefch").allTextContents();

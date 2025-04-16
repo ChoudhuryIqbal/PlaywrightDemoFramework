@@ -6,7 +6,8 @@
   "scripts": {
     "regression":"npx playwright test",
     "sanity": "npx playwright test --grep @smoke",
-   "uiSanity": "npx playwright test --headed"
+   "uiSanity": "npx playwright test --headed",
+   "apiTest": "npx playwright test apiTests"
   },
   "repository": {
     "type": "git",
